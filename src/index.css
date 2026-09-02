@@ -8,26 +8,33 @@
   }
 
   body {
-    @apply font-body text-ink-100 antialiased;
+    margin: 0;
+    min-width: 320px;
     min-height: 100vh;
+    background: #010914;
+    color: white;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2 {
-    @apply font-display font-bold tracking-tight;
-    background-image: linear-gradient(90deg, #4C9FFF 0%, #4FF0C7 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+  * {
+    box-sizing: border-box;
   }
 
-  h3 {
-    @apply font-display font-semibold;
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: rgba(0, 200, 255, 0.3);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

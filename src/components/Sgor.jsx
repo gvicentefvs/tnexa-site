@@ -40,9 +40,9 @@ const etapas = [
   },
   {
     numero: '06',
-    titulo: 'Envase',
+    titulo: 'Industrialização',
     descricao:
-      'O SGOR acompanha o processo de envase e mantém a relação entre produto, lote e quantidade.',
+      'O SGOR acompanha o processo de industrialização e mantém a relação entre produto, lote e quantidade.',
     resultado: 'Produto pronto para expedição.',
   },
   {
@@ -67,13 +67,15 @@ export default function Sgor() {
   const etapa = etapas[etapaAtiva]
 
   return (
-    <Section id="sgor" eyebrow="Uma visão do SGOR">
+    <Section id="sgor">
+
       <div className="space-y-10">
 
         {/* TÍTULO */}
         <div className="max-w-4xl">
+
           <h2 className="text-4xl leading-tight md:text-6xl">
-            Do primeiro registro ao histórico final.
+            Conheça o SGOR, um produto TNEXA.
           </h2>
 
           <p className="mt-5 max-w-3xl text-base text-ink-300 md:text-lg">
@@ -81,14 +83,20 @@ export default function Sgor() {
             transformando informações dispersas em processos organizados,
             rastreáveis e inteligentes.
           </p>
+
         </div>
 
         {/* FLUXO */}
         <div className="overflow-x-auto pb-4">
+
           <div className="flex min-w-max items-center gap-2">
 
             {etapas.map((item, index) => (
-              <div key={item.numero} className="flex items-center">
+
+              <div
+                key={item.numero}
+                className="flex items-center"
+              >
 
                 <button
                   onClick={() => setEtapaAtiva(index)}
@@ -98,6 +106,7 @@ export default function Sgor() {
                       : 'border-ink-500/30 bg-bg-800/50 text-ink-300 hover:border-aqua-400/50 hover:text-ink-100'
                   }`}
                 >
+
                   <span
                     className={`flex h-6 w-6 items-center justify-center rounded-full font-mono text-[10px] ${
                       etapaAtiva === index
@@ -111,9 +120,11 @@ export default function Sgor() {
                   <span className="whitespace-nowrap font-display text-sm">
                     {item.titulo}
                   </span>
+
                 </button>
 
                 {index < etapas.length - 1 && (
+
                   <motion.span
                     className="mx-2 text-ink-500"
                     animate={{
@@ -122,16 +133,20 @@ export default function Sgor() {
                   >
                     →
                   </motion.span>
+
                 )}
 
               </div>
+
             ))}
 
           </div>
+
         </div>
 
         {/* CONTEÚDO DA ETAPA */}
         <AnimatePresence mode="wait">
+
           <motion.div
             key={etapa.numero}
             initial={{ opacity: 0, y: 15 }}
@@ -141,7 +156,7 @@ export default function Sgor() {
             className="relative overflow-hidden rounded-2xl border border-ink-500/20 bg-bg-800/60 p-8 md:p-10"
           >
 
-            {/* brilho */}
+            {/* BRILHO */}
             <div
               className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-aqua-500/10 blur-[100px]"
               aria-hidden="true"
@@ -151,6 +166,7 @@ export default function Sgor() {
 
               {/* NÚMERO */}
               <div>
+
                 <span className="font-mono text-sm text-aqua-400">
                   ETAPA
                 </span>
@@ -158,10 +174,12 @@ export default function Sgor() {
                 <div className="mt-2 font-display text-6xl text-ink-100">
                   {etapa.numero}
                 </div>
+
               </div>
 
               {/* TEXTO */}
               <div>
+
                 <h3 className="text-3xl text-ink-100 md:text-4xl">
                   {etapa.titulo}
                 </h3>
@@ -171,16 +189,21 @@ export default function Sgor() {
                 </p>
 
                 <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-aqua-400/30 bg-aqua-400/5 px-4 py-2">
+
                   <span className="h-2 w-2 rounded-full bg-aqua-400" />
 
                   <span className="font-mono text-xs text-aqua-300">
                     {etapa.resultado}
                   </span>
+
                 </div>
+
               </div>
 
             </div>
+
           </motion.div>
+
         </AnimatePresence>
 
         {/* CONTROLE */}
@@ -216,16 +239,21 @@ export default function Sgor() {
 
         {/* FECHAMENTO */}
         <div className="border-t border-ink-500/20 pt-8">
+
           <p className="max-w-3xl text-lg text-ink-200 md:text-xl">
             Não é apenas registrar informações.
+
             <span className="text-aqua-400">
               {' '}
               É conectar toda a operação.
             </span>
+
           </p>
+
         </div>
 
       </div>
+
     </Section>
   )
 }

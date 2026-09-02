@@ -1,5 +1,9 @@
-// Global background layer, fixed behind the whole page.
-// Clean futuristic style with subtle particles and soft lighting.
+// ============================================================
+// FUNDO GLOBAL TNEXA
+// ============================================================
+// Fica fixo atrás de toda a página.
+// Não interfere em botões, rolagem ou conteúdo.
+// ============================================================
 
 export default function BackgroundFX() {
   return (
@@ -7,7 +11,11 @@ export default function BackgroundFX() {
       className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-bg-900"
       aria-hidden="true"
     >
-      {/* Base background - slightly lighter and cleaner */}
+
+      {/* ======================================================
+          BASE
+      ====================================================== */}
+
       <div
         className="absolute inset-0"
         style={{
@@ -16,8 +24,12 @@ export default function BackgroundFX() {
         }}
       />
 
-      {/* Soft top-right particles */}
+      {/* ======================================================
+          PARTÍCULAS — SUPERIOR DIREITO
+      ====================================================== */}
+
       <div className="absolute -right-1/5 -top-1/5 h-[85vh] w-[85vh] rotate-[15deg]">
+
         <div
           className="absolute inset-0 opacity-[0.35]"
           style={{
@@ -44,10 +56,8 @@ export default function BackgroundFX() {
           }}
         />
 
-        {/* Soft glow */}
         <div className="absolute left-1/3 top-1/4 h-40 w-40 rounded-full bg-aqua-300/20 blur-[90px]" />
 
-        {/* Very subtle diagonal light */}
         <div
           className="absolute left-1/4 top-1/3 h-[1px] w-[65%] -rotate-[20deg] blur-[2px] opacity-[0.35]"
           style={{
@@ -55,13 +65,21 @@ export default function BackgroundFX() {
               'linear-gradient(90deg, transparent, rgba(150,255,230,0.7), transparent)',
           }}
         />
+
       </div>
 
-      {/* Soft top-right glow */}
+      {/* ======================================================
+          BRILHO SUPERIOR DIREITO
+      ====================================================== */}
+
       <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-aqua-500/10 blur-[120px]" />
 
-      {/* Soft bottom-left particles */}
+      {/* ======================================================
+          PARTÍCULAS — INFERIOR ESQUERDO
+      ====================================================== */}
+
       <div className="absolute -bottom-1/5 -left-1/5 h-[85vh] w-[85vh] -rotate-[15deg]">
+
         <div
           className="absolute inset-0 opacity-[0.30]"
           style={{
@@ -88,10 +106,8 @@ export default function BackgroundFX() {
           }}
         />
 
-        {/* Soft blue glow */}
         <div className="absolute right-1/3 bottom-1/4 h-40 w-40 rounded-full bg-blue-400/20 blur-[90px]" />
 
-        {/* Very subtle diagonal light */}
         <div
           className="absolute right-1/4 bottom-1/3 h-[1px] w-[65%] -rotate-[20deg] blur-[2px] opacity-[0.30]"
           style={{
@@ -99,12 +115,19 @@ export default function BackgroundFX() {
               'linear-gradient(90deg, transparent, rgba(140,190,255,0.7), transparent)',
           }}
         />
+
       </div>
 
-      {/* Soft bottom-left glow */}
+      {/* ======================================================
+          BRILHO INFERIOR ESQUERDO
+      ====================================================== */}
+
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-blue-500/10 blur-[120px]" />
 
-      {/* Almost invisible diagonal texture */}
+      {/* ======================================================
+          TEXTURA
+      ====================================================== */}
+
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -112,6 +135,7 @@ export default function BackgroundFX() {
             'repeating-linear-gradient(115deg, rgba(79,240,199,0.5) 0px, rgba(79,240,199,0.5) 1px, transparent 1px, transparent 100px)',
         }}
       />
+
     </div>
   )
 }
