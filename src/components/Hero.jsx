@@ -12,9 +12,7 @@ export default function Hero({ onOpenTnexa }) {
 
     window.addEventListener('resize', handleResize)
 
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
@@ -43,6 +41,7 @@ export default function Hero({ onOpenTnexa }) {
             opacity: 0.55;
             transform: translate(-50%, -50%) scale(1);
           }
+
           50% {
             opacity: 0.9;
             transform: translate(-50%, -50%) scale(1.08);
@@ -53,6 +52,7 @@ export default function Hero({ onOpenTnexa }) {
           0%, 100% {
             transform: translate(-50%, -50%) translateY(0px);
           }
+
           50% {
             transform: translate(-50%, -50%) translateY(-8px);
           }
@@ -63,6 +63,7 @@ export default function Hero({ onOpenTnexa }) {
             opacity: 0.25;
             transform: translate(-50%, -50%) scale(0.9);
           }
+
           50% {
             opacity: 0.55;
             transform: translate(-50%, -50%) scale(1.15);
@@ -102,16 +103,45 @@ export default function Hero({ onOpenTnexa }) {
 
       <section
         id="inicio"
-        className="relative min-h-screen overflow-hidden bg-bg-900"
+        className="
+          relative
+          min-h-screen
+          overflow-hidden
+          bg-[#02070A]
+        "
       >
+
+        {/* =====================================================
+            FUNDO ÚNICO
+            =====================================================
+            IMPORTANTE:
+            Não existe mais nenhuma divisão vertical.
+            O Hero inteiro usa o mesmo fundo.
+        ====================================================== */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            z-0
+          "
+          aria-hidden="true"
+          style={{
+            background:
+              'linear-gradient(180deg, #02070A 0%, #041015 50%, #02070A 100%)',
+          }}
+        />
 
         {/* =====================================================
             CABEÇALHO
         ====================================================== */}
-        <header className="relative z-50 border-b border-white/5 bg-bg-900/95 backdrop-blur-md">
+
+        <header className="relative z-50 border-b border-white/5 bg-[#02070A]/95 backdrop-blur-md">
           <div className="mx-auto flex h-[86px] max-w-[1400px] items-center justify-between px-6 lg:px-10">
 
             {/* LOGO */}
+
             <a
               href="#inicio"
               className="flex items-center"
@@ -125,7 +155,9 @@ export default function Hero({ onOpenTnexa }) {
             </a>
 
             {/* MENU DESKTOP */}
+
             <nav className="hidden items-center gap-10 md:flex">
+
               <a
                 href="#contato"
                 className="font-display text-sm font-semibold text-white transition-colors hover:text-aqua-400"
@@ -156,17 +188,43 @@ export default function Hero({ onOpenTnexa }) {
 
               <a
                 href="#contato"
-                className="rounded-full border border-aqua-500 px-8 py-3.5 font-display text-sm font-semibold text-white transition-all hover:bg-aqua-500/10 hover:shadow-[0_0_25px_rgba(34,211,238,0.18)]"
+                className="
+                  rounded-full
+                  border
+                  border-aqua-500
+                  px-8
+                  py-3.5
+                  font-display
+                  text-sm
+                  font-semibold
+                  text-white
+                  transition-all
+                  hover:bg-aqua-500/10
+                  hover:shadow-[0_0_25px_rgba(34,211,238,0.18)]
+                "
               >
                 Fale Conosco
               </a>
+
             </nav>
 
             {/* BOTÃO MOBILE */}
+
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-aqua-500/70 text-white md:hidden"
+              className="
+                flex
+                h-14
+                w-14
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-aqua-500/70
+                text-white
+                md:hidden
+              "
               aria-label="Abrir menu"
               aria-expanded={menuOpen}
             >
@@ -176,11 +234,14 @@ export default function Hero({ onOpenTnexa }) {
                 <span className="block h-0.5 w-6 bg-white" />
               </div>
             </button>
+
           </div>
 
           {/* MENU MOBILE */}
+
           {menuOpen && (
-            <div className="border-t border-white/5 bg-bg-900 px-6 py-6 md:hidden">
+            <div className="border-t border-white/5 bg-[#02070A] px-6 py-6 md:hidden">
+
               <nav className="flex flex-col gap-5 text-center">
 
                 <a
@@ -220,33 +281,50 @@ export default function Hero({ onOpenTnexa }) {
                 <a
                   href="#contato"
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-full border border-aqua-500 px-6 py-3 font-display text-sm font-semibold text-white"
+                  className="
+                    rounded-full
+                    border
+                    border-aqua-500
+                    px-6
+                    py-3
+                    font-display
+                    text-sm
+                    font-semibold
+                    text-white
+                  "
                 >
                   Fale Conosco
                 </a>
 
               </nav>
+
             </div>
           )}
+
         </header>
-
-        {/* =====================================================
-            FUNDO
-        ====================================================== */}
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_45%,rgba(0,200,255,0.08),transparent_35%)]" />
-
-          <div className="absolute left-0 top-0 h-full w-[45%] bg-[radial-gradient(circle_at_20%_20%,rgba(0,160,255,0.08),transparent_45%)]" />
-        </div>
 
         {/* =====================================================
             CONTEÚDO HERO
         ====================================================== */}
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-86px)] max-w-[1400px] flex-col px-6 lg:px-10">
+
+        <div
+          className="
+            relative
+            z-10
+            mx-auto
+            flex
+            min-h-[calc(100vh-86px)]
+            max-w-[1400px]
+            flex-col
+            px-6
+            lg:px-10
+          "
+        >
 
           {/* =================================================
               ÓRBITA
           ================================================== */}
+
           <div
             className="
               order-1
@@ -256,6 +334,7 @@ export default function Hero({ onOpenTnexa }) {
               w-full
               items-center
               justify-center
+
               md:absolute
               md:right-[-60px]
               md:top-[50%]
@@ -263,6 +342,7 @@ export default function Hero({ onOpenTnexa }) {
               md:h-[650px]
               md:w-[650px]
               md:-translate-y-1/2
+
               lg:right-[-20px]
               lg:h-[720px]
               lg:w-[720px]
@@ -270,6 +350,7 @@ export default function Hero({ onOpenTnexa }) {
           >
 
             {/* BRILHO CENTRAL */}
+
             <div
               className="
                 orbit-glow
@@ -278,6 +359,8 @@ export default function Hero({ onOpenTnexa }) {
                 top-1/2
                 h-32
                 w-32
+                -translate-x-1/2
+                -translate-y-1/2
                 rounded-full
                 bg-aqua-400/20
                 blur-3xl
@@ -287,6 +370,7 @@ export default function Hero({ onOpenTnexa }) {
             />
 
             {/* PONTO CENTRAL */}
+
             <div
               className="
                 absolute
@@ -304,6 +388,7 @@ export default function Hero({ onOpenTnexa }) {
             />
 
             {/* ÓRBITA VERTICAL */}
+
             <div
               className="
                 orbit-outer
@@ -321,6 +406,7 @@ export default function Hero({ onOpenTnexa }) {
             />
 
             {/* ÓRBITA DIAGONAL */}
+
             <div
               className="
                 orbit-middle
@@ -341,6 +427,7 @@ export default function Hero({ onOpenTnexa }) {
             />
 
             {/* ÓRBITA HORIZONTAL */}
+
             <div
               className="
                 orbit-inner
@@ -358,6 +445,7 @@ export default function Hero({ onOpenTnexa }) {
             />
 
             {/* LOGO CENTRAL */}
+
             <img
               src="/logo.tnexa.spf.png"
               alt="TNEXA"
@@ -378,6 +466,7 @@ export default function Hero({ onOpenTnexa }) {
             {/* =================================================
                 TECNOLOGIA
             ================================================== */}
+
             <div
               className="
                 absolute
@@ -404,6 +493,7 @@ export default function Hero({ onOpenTnexa }) {
             {/* =================================================
                 PROCESSOS
             ================================================== */}
+
             <div
               className="
                 absolute
@@ -430,6 +520,7 @@ export default function Hero({ onOpenTnexa }) {
             {/* =================================================
                 RASTREABILIDADE
             ================================================== */}
+
             <div
               className="
                 absolute
@@ -456,6 +547,7 @@ export default function Hero({ onOpenTnexa }) {
             {/* =================================================
                 INFORMAÇÕES
             ================================================== */}
+
             <div
               className="
                 absolute
@@ -482,6 +574,7 @@ export default function Hero({ onOpenTnexa }) {
             {/* =================================================
                 DECISÕES
             ================================================== */}
+
             <div
               className="
                 absolute
@@ -504,11 +597,13 @@ export default function Hero({ onOpenTnexa }) {
                 assertivas
               </p>
             </div>
+
           </div>
 
           {/* =================================================
               TEXTO
           ================================================== */}
+
           <div
             className="
               order-2
@@ -518,6 +613,7 @@ export default function Hero({ onOpenTnexa }) {
               justify-center
               pb-20
               pt-4
+
               md:absolute
               md:left-10
               md:top-1/2
@@ -525,6 +621,7 @@ export default function Hero({ onOpenTnexa }) {
               md:-translate-y-1/2
               md:pb-0
               md:pt-0
+
               lg:left-10
             "
           >
@@ -544,6 +641,7 @@ export default function Hero({ onOpenTnexa }) {
               "
             >
               Quanto sua empresa perde com processos{' '}
+
               <span className="bg-gradient-to-r from-blue-500 to-aqua-400 bg-clip-text text-transparent">
                 desconectados?
               </span>
@@ -608,12 +706,15 @@ export default function Hero({ onOpenTnexa }) {
               </a>
 
             </div>
+
           </div>
+
         </div>
 
         {/* =====================================================
             WHATSAPP
         ====================================================== */}
+
         <a
           href="https://wa.me/5515988160880"
           target="_blank"
@@ -645,9 +746,11 @@ export default function Hero({ onOpenTnexa }) {
             aria-hidden="true"
           >
             <path d="M19.11 17.21c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.15-1.34-.79-.7-1.32-1.57-1.48-1.84-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.11 2.84c.14.18 1.92 2.93 4.65 4.11.65.28 1.15.45 1.54.57.65.21 1.24.18 1.7.11.52-.08 1.59-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32z" />
+
             <path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.63-1.74A13 13 0 1 0 16 3zm0 23.7c-2.06 0-4.08-.55-5.85-1.59l-.42-.25-3.93 1.03 1.05-3.83-.27-.44A10.69 10.69 0 1 1 16 26.7z" />
           </svg>
         </a>
+
       </section>
     </>
   )

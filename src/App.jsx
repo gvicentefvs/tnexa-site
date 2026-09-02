@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 
-import BackgroundFX from './components/BackgroundFX'
 import Hero from './components/Hero'
 import TnexaOverlay from './components/TnexaOverlay'
 import SgorOverlay from './components/SgorOverlay'
@@ -30,11 +29,6 @@ export default function App() {
 
   return (
     <main className="min-h-screen">
-
-      {/* =====================================================
-          FUNDO GLOBAL
-      ====================================================== */}
-      <BackgroundFX />
 
       {/* =====================================================
           HERO
