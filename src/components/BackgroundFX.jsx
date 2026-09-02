@@ -1,24 +1,23 @@
 // ============================================================
 // FUNDO GLOBAL TNEXA
 // ============================================================
-// Fica fixo atrás de toda a página.
-// Não interfere em botões, rolagem ou conteúdo.
+// Fundo único e contínuo para desktop e mobile.
 // ============================================================
 
 export default function BackgroundFX() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-bg-900"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
-
       {/* ======================================================
-          BASE
+          BASE GLOBAL
       ====================================================== */}
 
       <div
         className="absolute inset-0"
         style={{
+          backgroundColor: '#02070A',
           background:
             'radial-gradient(ellipse 140% 90% at 50% -10%, #12363A 0%, #091D21 42%, #041015 72%, #02070A 100%)',
         }}
@@ -28,8 +27,16 @@ export default function BackgroundFX() {
           PARTÍCULAS — SUPERIOR DIREITO
       ====================================================== */}
 
-      <div className="absolute -right-1/5 -top-1/5 h-[85vh] w-[85vh] rotate-[15deg]">
-
+      <div
+        className="
+          absolute
+          -right-[20%]
+          -top-[20%]
+          h-[85vh]
+          w-[85vh]
+          rotate-[15deg]
+        "
+      >
         <div
           className="absolute inset-0 opacity-[0.35]"
           style={{
@@ -65,7 +72,6 @@ export default function BackgroundFX() {
               'linear-gradient(90deg, transparent, rgba(150,255,230,0.7), transparent)',
           }}
         />
-
       </div>
 
       {/* ======================================================
@@ -78,8 +84,16 @@ export default function BackgroundFX() {
           PARTÍCULAS — INFERIOR ESQUERDO
       ====================================================== */}
 
-      <div className="absolute -bottom-1/5 -left-1/5 h-[85vh] w-[85vh] -rotate-[15deg]">
-
+      <div
+        className="
+          absolute
+          -bottom-[20%]
+          -left-[20%]
+          h-[85vh]
+          w-[85vh]
+          -rotate-[15deg]
+        "
+      >
         <div
           className="absolute inset-0 opacity-[0.30]"
           style={{
@@ -115,7 +129,6 @@ export default function BackgroundFX() {
               'linear-gradient(90deg, transparent, rgba(140,190,255,0.7), transparent)',
           }}
         />
-
       </div>
 
       {/* ======================================================
@@ -125,7 +138,7 @@ export default function BackgroundFX() {
       <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-blue-500/10 blur-[120px]" />
 
       {/* ======================================================
-          TEXTURA
+          TEXTURA GLOBAL
       ====================================================== */}
 
       <div
@@ -135,7 +148,6 @@ export default function BackgroundFX() {
             'repeating-linear-gradient(115deg, rgba(79,240,199,0.5) 0px, rgba(79,240,199,0.5) 1px, transparent 1px, transparent 100px)',
         }}
       />
-
     </div>
   )
 }
